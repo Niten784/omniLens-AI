@@ -7,20 +7,33 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    
+    - name: Set up Node.js 20
+      uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'  # <- 18 ki jagah 20 kar diya
+    
     - name: Install dependencies
-      run: yarn install
+      run: npm install
+    
     - uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
+    
     - uses: android-actions/setup-android@v3
-    - run: npx expo prebuild --platform android --clean
-    - run: chmod +x android/gradlew
-    - run: cd android && ./gradlew assembleDebug
-    - uses: actions/upload-artifact@v4
+    
+    - name: Generate Android project
+      run: npx expo prebuild --platform android --clean
+    
+    - name: Make gradlew executable
+      run: chmod +x android/gradlew
+    
+    - name: Build Debug APK
+      run: cd android && ./gradlew assembleDebug
+    
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
       with:
         name: omniLens-AI-debug
         path: android/app/build/outputs/apk/debug/app-debug.apk
