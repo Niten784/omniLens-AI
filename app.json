@@ -15,7 +15,7 @@
       "backgroundColor": "#000000"
       "android": {
   "package": "com.niten.omnilensai",
-  "versionCode": 1
+  "versionCode": 1,
       }
     },
     "ios": {
