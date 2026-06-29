@@ -29,10 +29,10 @@ jobs:
       uses: android-actions/setup-android@v3
     
     - name: Generate Android project
-      env:
-      CI: 1
-      EXPO_NO_PROMPT: 1
-      run: npx expo prebuild --platform android --clean --yes || echo "prebuild done"
+  env:
+    CI: 1
+    EXPO_NO_PROMPT: 1
+  run: npx expo prebuild --platform android --clean --yes || echo "prebuild done"
     
     - name: Install updated dependencies
       run: npm install
