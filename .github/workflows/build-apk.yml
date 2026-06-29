@@ -7,10 +7,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: omniLens-AI  # <- ye line sirf yahi rahegi
-    
     steps:
     - uses: actions/checkout@v4
     
