@@ -34,11 +34,11 @@ jobs:
         EXPO_NO_PROMPT: 1
       run: npx expo prebuild --platform android --clean
     
-    - name: Verify android folder
-      run: ls -la android/
-    
     - name: Install updated dependencies
       run: npm install
+    
+    - name: Verify android folder
+      run: ls -la android/
     
     - name: Make gradlew executable
       run: chmod +x android/gradlew
