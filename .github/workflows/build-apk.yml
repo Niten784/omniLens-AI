@@ -29,7 +29,9 @@ jobs:
       uses: android-actions/setup-android@v3
     
     - name: Generate Android project
-      run: printf "y\n" | npx expo prebuild --platform android --clean
+      run: |
+         npx expo prebuild --platform android --clean || true
+         npx expo prebuild --platform android
     
     - name: Install updated dependencies
       run: npm install
