@@ -11,6 +11,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+    
+    - name: Install dependencies
+      run: npm install
+    
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
@@ -20,14 +28,17 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
     
+    - name: Generate Android project
+      run: npx expo prebuild --platform android --clean
+    
     - name: Make gradlew executable
-      run: chmod +x ./omniLens-AI/gradlew
+      run: chmod +x android/gradlew
     
     - name: Build Debug APK
-      run: cd ./omniLens-AI && ./gradlew assembleDebug
+      run: cd android && ./gradlew assembleDebug
     
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: omniLens-AI-debug
-        path: omniLens-AI/app/build/outputs/apk/debug/app-debug.apk
+        path: android/app/build/outputs/apk/debug/app-debug.apk
