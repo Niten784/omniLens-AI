@@ -13,6 +13,10 @@
       "image": "./assets/images/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#000000"
+      "android": {
+  "package": "com.niten.omnilensai",
+  "versionCode": 1
+      }
     },
     "ios": {
       "supportsTablet": false,
