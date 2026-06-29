@@ -7,6 +7,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: omniLens-AI  # <- ye line add kar
+  build:
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     
