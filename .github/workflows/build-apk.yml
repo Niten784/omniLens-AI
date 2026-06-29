@@ -32,7 +32,7 @@ jobs:
       env:
         CI: 1
         EXPO_NO_PROMPT: 1
-      run: npx expo prebuild --platform android --clean --yes
+      run: npx expo prebuild --platform android --clean
     
     - name: Verify android folder
       run: ls -la android/
