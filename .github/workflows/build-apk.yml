@@ -32,7 +32,7 @@ jobs:
       env:
         CI: 1
         EXPO_NO_PROMPT: 1
-      run: npx expo prebuild --platform android --clean --skip-dependency-install
+      run: yes | npx expo prebuild --platform android --clean
     
     - name: Install updated dependencies
       run: npm install
