@@ -26,14 +26,11 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Install EAS CLI
-        run: npm install -g eas-cli
+      - name: Align native module versions with installed Expo SDK
+        run: npx expo install --fix
 
       - name: Expo prebuild (android)
         run: npx expo prebuild --platform android --no-install
-
-      - name: Install android deps
-        run: npm install --legacy-peer-deps
 
       - name: Grant execute permission for gradlew
         run: chmod +x android/gradlew
